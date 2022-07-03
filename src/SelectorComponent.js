@@ -3,8 +3,7 @@ import "./styles.css";
 export class SelectorComponent {
   constructor(capitals) {
     this.arr = capitals;
-    this.name = "";
-    this.defaultOptions = ["no data"];
+    this.defaultOptions = ["no data", "empty"];
   }
 
   mapOptions(el) {
@@ -12,15 +11,13 @@ export class SelectorComponent {
   }
 
   init(element) {
-    this.element = element;
-
     element.innerHTML = `
       <select class="select">
-      ${
-        Array.isArray(this.arr)
-          ? this.arr.map(this.mapOptions)
-          : this.defaultOptions.map(this.mapOptions)
-      }
+        ${
+          Array.isArray(this.arr) && this.arr.length !== 0
+            ? this.arr.map(this.mapOptions)
+            : this.defaultOptions.map(this.mapOptions)
+        }}
       </select>
     `;
   }

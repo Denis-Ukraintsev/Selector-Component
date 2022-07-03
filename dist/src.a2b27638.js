@@ -210,8 +210,7 @@ var SelectorComponent = /*#__PURE__*/function () {
     _classCallCheck(this, SelectorComponent);
 
     this.arr = capitals;
-    this.name = "";
-    this.defaultOptions = ["no data"];
+    this.defaultOptions = ["no data", "empty"];
   }
 
   _createClass(SelectorComponent, [{
@@ -222,8 +221,7 @@ var SelectorComponent = /*#__PURE__*/function () {
   }, {
     key: "init",
     value: function init(element) {
-      this.element = element;
-      element.innerHTML = "\n      <select class=\"select\">\n      ".concat(Array.isArray(this.arr) ? this.arr.map(this.mapOptions) : this.defaultOptions.map(this.mapOptions), "\n      </select>\n    ");
+      element.innerHTML = "\n      <select class=\"select\">\n        ".concat(Array.isArray(this.arr) && this.arr.length !== 0 ? this.arr.map(this.mapOptions) : this.defaultOptions.map(this.mapOptions), "}\n      </select>\n    ");
     }
   }]);
 
@@ -267,7 +265,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63270" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63791" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

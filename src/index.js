@@ -6,7 +6,7 @@ const selectorComponent = new SelectorComponent([
   "Stavropol",
   "Chelyabinsk",
   "Krasnodar",
-  "Rostov-on-Don"
+  "Rostov-on-Don",
 ]);
 
 selectorComponent.init(element);
